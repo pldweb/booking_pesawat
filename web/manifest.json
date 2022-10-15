@@ -1,6 +1,6 @@
 {
-    "name": "pertama_kali2",
-    "short_name": "pertama_kali2",
+    "name": "booking_pesawat",
+    "short_name": "booking_pesawat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
