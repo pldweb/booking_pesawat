@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "58930552874",
+    "project_id": "airplane-1e57c",
+    "storage_bucket": "airplane-1e57c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58930552874:android:42add7aba0c1cbe8e66353",
+        "android_client_info": {
+          "package_name": "com.rivaldi.airplane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58930552874-2osv1cjq1mgf9p5rsuartkrl7kk6676u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQQBta9E3pXWbjc2J4O6AIzf8dDi2sTWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58930552874-2osv1cjq1mgf9p5rsuartkrl7kk6676u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
