@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable, use_rethrow_when_possible, prefer_final_fields, unused_import, empty_catches
+// ignore_for_file: unused_local_variable, use_rethrow_when_possible, prefer_final_fields, unused_import, empty_catches, non_constant_identifier_names
 
 import 'package:booking_pesawat/models/user_model.dart';
 import 'package:booking_pesawat/services/user_service.dart';

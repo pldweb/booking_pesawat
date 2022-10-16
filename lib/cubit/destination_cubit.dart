@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
 import 'package:booking_pesawat/models/user_destination_model.dart';
