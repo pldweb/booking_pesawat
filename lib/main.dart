@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 
 import 'ui/pages/get_started_page.dart';
 import 'ui/pages/sign_up_page.dart';
+import 'ui/pages/sign_in_page.dart';
 import 'ui/pages/splash_pages.dart';
 
 Future<void> main() async {
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => SplashPage(),
           '/get-started': (context) => GetStartedPage(),
           '/sign-up': (context) => SignUpPage(),
+          '/sign-in': (context) => SignInPage(),
           '/bonus': (context) => BonusPage(),
           '/main': (context) => MainPage(),
           '/home': (context) => HomePage(),

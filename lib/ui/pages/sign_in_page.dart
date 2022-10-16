@@ -8,8 +8,8 @@ import 'package:booking_pesawat/ui/widget/custom_text_form_field.dart';
 import 'package:booking_pesawat/ui/widget/custom_title.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpPage extends StatelessWidget {
-  SignUpPage({super.key});
+class SignInPage extends StatelessWidget {
+  SignInPage({super.key});
 
   final TextEditingController nameController = TextEditingController(text: '');
   final TextEditingController emailController = TextEditingController(text: '');
@@ -26,16 +26,8 @@ class SignUpPage extends StatelessWidget {
           top: 50,
         ),
         child: CustomTitle(
-          title: 'Join us and get your next journey',
+          title: 'Sign In with your existing account',
         ),
-      );
-    }
-
-    Widget nameInput() {
-      return CustomTextFormField(
-        name: 'Full Name',
-        hintText: 'Your Full Name',
-        controller: nameController,
       );
     }
 
@@ -53,14 +45,6 @@ class SignUpPage extends StatelessWidget {
         hintText: 'Your Password',
         obscureText: true,
         controller: passwordController,
-      );
-    }
-
-    Widget hobbyInput() {
-      return CustomTextFormField(
-        name: 'Hobby',
-        hintText: 'Hobby',
-        controller: hobbyController,
       );
     }
 
@@ -86,7 +70,7 @@ class SignUpPage extends StatelessWidget {
             );
           }
           return CustomButton(
-            title: 'Get Started',
+            title: 'Sign In',
             onPressed: () {
               print(passwordController.text);
 
@@ -102,10 +86,10 @@ class SignUpPage extends StatelessWidget {
       );
     }
 
-    Widget signInButton() {
+    Widget signUpButton() {
       return GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/sign-in');
+          Navigator.pop(context);
         },
         child: Container(
           alignment: Alignment.center,
@@ -114,7 +98,7 @@ class SignUpPage extends StatelessWidget {
             bottom: 10,
           ),
           child: Text(
-            'Have an account? Sign In',
+            'Don\'t have account? Sign Up Now',
             style: greyTextStyle.copyWith(
               fontSize: 15,
               fontWeight: light,
@@ -134,10 +118,8 @@ class SignUpPage extends StatelessWidget {
           borderRadius: BorderRadius.circular(defaultRadius),
         ),
         child: Column(children: [
-          nameInput(),
           emailInput(),
           passwordInput(),
-          hobbyInput(),
           submitButton(),
         ]),
       );
@@ -150,7 +132,7 @@ class SignUpPage extends StatelessWidget {
         children: [
           title(),
           inputSection(),
-          signInButton(),
+          signUpButton(),
         ],
       ),
     );
