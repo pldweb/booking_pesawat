@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:booking_pesawat/cubit/auth_cubit.dart';
+import 'package:booking_pesawat/cubit/cubit_cubit.dart';
 import 'package:booking_pesawat/ui/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:booking_pesawat/shared/theme.dart';
@@ -21,8 +22,9 @@ class SettingPage extends StatelessWidget {
             ),
           );
         } else if (state is AuthInitial) {
+          context.read<PageCubit>().setPage(0);
           Navigator.pushNamedAndRemoveUntil(
-              context, '/sign-up', (route) => false);
+              context, '/sign-in', (route) => false);
         }
       },
       builder: (context, state) {
