@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, unused_import
+
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
@@ -28,7 +30,7 @@ class DestinationModel extends Equatable {
         city: json['city'],
         imageUrl: json['imageUrl'],
         description: json['description'],
-        rating: json['rating'],
+        rating: json['rating'].toDouble(),
         price: json['price'],
       );
 

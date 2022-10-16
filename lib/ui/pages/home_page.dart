@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, avoid_web_libraries_in_flutter
 
 import 'package:booking_pesawat/cubit/auth_cubit.dart';
+import 'package:booking_pesawat/cubit/destination_cubit.dart';
+import 'package:booking_pesawat/models/user_destination_model.dart';
 import 'package:booking_pesawat/ui/widget/destination_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:booking_pesawat/shared/theme.dart';
@@ -9,8 +11,19 @@ import 'package:booking_pesawat/ui/widget/custom_title.dart';
 import 'package:booking_pesawat/ui/widget/destination_card.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    context.read<DestinationCubit>().fetchDestinations();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +74,7 @@ class HomePage extends StatelessWidget {
       );
     }
 
-    Widget popularDestination() {
+    Widget popularDestination(List<DestinationModel> destinations) {
       return Container(
         margin: EdgeInsets.fromLTRB(
           24,
@@ -72,27 +85,9 @@ class HomePage extends StatelessWidget {
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              DestinationCard(
-                nameDestination: 'Lake Ciliwung',
-                imageUrl: 'assets/image_destination1.png',
-                city: 'Tangerang',
-                rating: 3.4,
-              ),
-              DestinationCard(
-                nameDestination: 'Sungai Musi',
-                imageUrl: 'assets/image_destination2.png',
-                city: 'Kalimantan',
-                rating: 3.4,
-              ),
-              DestinationCard(
-                nameDestination: 'Kali Malang',
-                imageUrl: 'assets/image_destination3.png',
-                city: 'Jakarta Selatan',
-                rating: 3.4,
-              ),
-            ],
-          ),
+              children: destinations.map((DestinationModel destination) {
+            return DestinationCard(destination);
+          }).toList()),
         ),
       );
     }
@@ -145,12 +140,31 @@ class HomePage extends StatelessWidget {
       );
     }
 
-    return ListView(
-      children: [
-        header(),
-        popularDestination(),
-        newDestination(),
-      ],
+    return BlocConsumer<DestinationCubit, DestinationState>(
+      listener: (context, state) {
+        if (state is DestinationFailed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: kRedColor,
+              content: Text(state.error),
+            ),
+          );
+        }
+      },
+      builder: (context, state) {
+        if (state is DestinationSuccess) {
+          return ListView(
+            children: [
+              header(),
+              popularDestination(state.destinations),
+              newDestination(),
+            ],
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
     );
   }
 }
