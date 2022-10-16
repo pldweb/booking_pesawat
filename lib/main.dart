@@ -2,6 +2,7 @@
 
 import 'package:booking_pesawat/cubit/auth_cubit.dart';
 import 'package:booking_pesawat/cubit/cubit_cubit.dart';
+import 'package:booking_pesawat/cubit/destination_cubit.dart';
 import 'package:booking_pesawat/ui/pages/checkout_page.dart';
 import 'package:booking_pesawat/ui/pages/choose_seat_page.dart';
 import 'package:booking_pesawat/ui/pages/success_checkout_page.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthCubit(),
         ),
+        BlocProvider(
+          create: (context) => DestinationCubit(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
