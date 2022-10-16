@@ -22,7 +22,7 @@ import 'ui/pages/splash_pages.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
+// Firebase
   runApp(MyApp());
 }
 
