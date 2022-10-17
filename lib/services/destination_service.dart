@@ -4,12 +4,12 @@ import 'package:booking_pesawat/models/user_destination_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DestinationService {
-  CollectionReference _desinationRef =
+  CollectionReference _destinationRef =
       FirebaseFirestore.instance.collection('destinations');
 
   Future<List<DestinationModel>> fetchDestinations() async {
     try {
-      QuerySnapshot result = await _desinationRef.get();
+      QuerySnapshot result = await _destinationRef.get();
 
       List<DestinationModel> destinations = result.docs.map(
         (e) {

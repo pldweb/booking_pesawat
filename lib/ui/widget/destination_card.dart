@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructorsx, prefer_const_constructors
 
 import 'package:booking_pesawat/models/user_destination_model.dart';
 import 'package:booking_pesawat/ui/pages/detail_page.dart';
@@ -11,8 +11,8 @@ class DestinationCard extends StatelessWidget {
 
   const DestinationCard(
     this.destination, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

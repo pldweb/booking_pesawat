@@ -25,5 +25,7 @@ class AuthFailed extends AuthState {
   final String error;
 
   AuthFailed(this.error);
+
+  @override
   List<Object> get props => [error];
 }

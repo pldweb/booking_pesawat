@@ -1,21 +1,16 @@
 // ignore_for_file: unused_import, prefer_const_constructors
 
+import 'package:booking_pesawat/models/user_destination_model.dart';
 import 'package:booking_pesawat/ui/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:booking_pesawat/shared/theme.dart';
 
 class DestinationTile extends StatelessWidget {
-  final String nameDestination;
-  final String city;
-  final String imageUrl;
-  final double rating;
+  final DestinationModel destination;
 
-  const DestinationTile({
+  const DestinationTile(
+    this.destination, {
     super.key,
-    required this.nameDestination,
-    required this.city,
-    required this.imageUrl,
-    this.rating = 0.0,
   });
 
   @override
@@ -55,7 +50,7 @@ class DestinationTile extends StatelessWidget {
                 ),
                 image: DecorationImage(
                   image: AssetImage(
-                    imageUrl,
+                    destination.imageUrl,
                   ),
                 ),
               ),
@@ -66,7 +61,7 @@ class DestinationTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    nameDestination,
+                    destination.name,
                     style: blackTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: medium,
@@ -76,7 +71,7 @@ class DestinationTile extends StatelessWidget {
                     maxLines: 2,
                   ),
                   Text(
-                    city,
+                    destination.city,
                     style: greyTextStyle,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -99,7 +94,7 @@ class DestinationTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  rating.toString(),
+                  destination.rating.toString(),
                   style: blackTextStyle.copyWith(
                     fontWeight: medium,
                   ),

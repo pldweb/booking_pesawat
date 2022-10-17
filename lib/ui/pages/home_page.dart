@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, avoid_web_libraries_in_flutter
-
 import 'package:booking_pesawat/cubit/auth_cubit.dart';
 import 'package:booking_pesawat/cubit/destination_cubit.dart';
 import 'package:booking_pesawat/models/user_destination_model.dart';
@@ -74,7 +72,8 @@ class _HomePageState extends State<HomePage> {
       );
     }
 
-    Widget popularDestination(List<DestinationModel> destinations) {
+    Widget popularDestinations(List<DestinationModel> destinations) {
+      print(destinations);
       return Container(
         margin: EdgeInsets.fromLTRB(
           24,
@@ -85,14 +84,16 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-              children: destinations.map((DestinationModel destination) {
-            return DestinationCard(destination);
-          }).toList()),
+            children: destinations.map((DestinationModel destination) {
+              return DestinationCard(destination);
+            }).toList(),
+          ),
         ),
       );
     }
 
-    Widget newDestination() {
+    Widget newDestinations(List<DestinationModel> destinations) {
+      print(destinations);
       return Container(
         margin: EdgeInsets.only(
           bottom: 140,
@@ -115,25 +116,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            DestinationTile(
-              nameDestination: 'Danau Beratan',
-              city: 'Singa Raja',
-              imageUrl: 'assets/image_destination6.png',
-            ),
-            DestinationTile(
-              nameDestination: 'Sydney Opera',
-              city: 'Australia',
-              imageUrl: 'assets/image_destination7.png',
-            ),
-            DestinationTile(
-              nameDestination: 'Roma',
-              city: 'Italia',
-              imageUrl: 'assets/image_destination8.png',
-            ),
-            DestinationTile(
-              nameDestination: 'Stadion Santiago Bernabeu',
-              city: 'Madrid',
-              imageUrl: 'assets/image_destination9.png',
+            Column(
+              children: destinations.map((DestinationModel destination) {
+                return DestinationTile(destination);
+              }).toList(),
             ),
           ],
         ),
@@ -156,8 +142,8 @@ class _HomePageState extends State<HomePage> {
           return ListView(
             children: [
               header(),
-              popularDestination(state.destinations),
-              newDestination(),
+              popularDestinations(state.destinations),
+              newDestinations(state.destinations),
             ],
           );
         }
